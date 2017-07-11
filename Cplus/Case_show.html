@@ -1,5 +1,6 @@
 <include file="Public:header"/>
 	<div class="searchi">
+        <img class="loaded" alt="" src="__IMG__/titlej.png" style="width: 60%;margin-left:20%;">
 		<ul>
 			<form action="{:U('Search/index')}" method="get">
 				<input name="kwyword" type="text" class="searchi_a"  onblur="if(this.value==''){this.value='请输入产品关键字'}" onFocus="if(this.value=='请输入产品关键字'){this.value=''}" value="请输入产品关键字">
@@ -21,7 +22,6 @@
 		<p class="time"><?php echo date('Y-m-d', $createtime)?></p>
 		<div style="padding:0 10px;">{$content}</div>
 		<p class="b10" align="center"><img alt="{$title}" src="{$thumb}"/></p>
-
 		<h2 class="b10 t10"><img src="__IMG__/arcc.jpg"/>其他案例</h2>
 
 		<p class="clear h10"></p>

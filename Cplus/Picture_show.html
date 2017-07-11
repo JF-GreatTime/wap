@@ -1,13 +1,4 @@
 <include file="Public:header"/>
-	<div class="searchi">
-		<ul>
-			<form action="{:U('Search/index')}" method="get">
-				<input name="kwyword" type="text" class="searchi_a"  onblur="if(this.value==''){this.value='请输入产品关键字'}" onFocus="if(this.value=='请输入产品关键字'){this.value=''}" value="请输入产品关键字">
-				<input name="" type="submit" class="searchi_s" value="搜索">
-			</form>
-		</ul>
-	<p class="clear"></p>
-	</div>
 	<p class="clear"></p>
 	<div class="position">
 		<label class="fenlei"><a href="javascript:;" id="catlist">分类</a></label>
@@ -20,8 +11,65 @@
 		<h1>{$title}</h1>
 		<p class="time"><?php echo date('Y-m-d', $createtime)?></p>
 		<div style="padding:0 10px;">{$content}</div>
-		<p class="b10" align="center"><img alt="{$title}" src="{$thumb}"/></p>
-
+		<p class="b10" align="center"><img alt="{$title}" src="{$thumb}"/>
+<h2>{$title}</h2>
+			<!--<h3>{$keywords}</h3>-->
+			<p><span>城市地区：{$area}</span></p>
+			<p><span>发布周期：{$species}</span></p>
+			<p><span>刊例价格：{$price}</span></p>
+			<p><span>咨询热线：<font>{$site_tel400}</font></span></p>
+			<p>媒体概述：{$description|str_cut=###,260}</p>
+</p>
+<div class="mediaR">
+							{if !empty($title1)}<div class="meA">
+								<div id="mA" class="title"><span>{$title1}</span></div>
+								<div class="box">{$content1}</div>
+							</div>{/if}
+							{if !empty($title2)}<div class="meA">
+								<div id="mB" class="title"><span>{$title2}</span></div>
+								<div class="box">{$content2}</div>
+							</div>{/if}
+							{if !empty($title3)}<div class="meA">
+								<div id="mC" class="title"><span>{$title3}</span></div>
+								<div class="box">{$content3}</div>
+							</div>{/if}
+							{if !empty($title4)}<div class="meA">
+								<div id="mD" class="title"><span>{$title4}</span></div>
+								<div class="box">{$content4}</div>
+							</div>{/if}
+							{if !empty($title5)}<div class="meA">
+								<div id="mE" class="title"><span>{$title5}</span></div>
+								<div class="box">{$content5}</div>
+							</div>{/if}
+							{if !empty($title6)}<div class="meA">
+								<div id="mF" class="title"><span>{$title6}</span></div>
+								<div class="box">{$content6}</div>
+							</div>{/if}
+							{if !empty($title7)}<div class="meA">
+								<div id="mG" class="title"><span>{$title7}</span></div>
+								<div class="box">{$content7}</div>
+							</div>{/if}
+							{if !empty($title8)}<div class="meA">
+								<div id="mH" class="title"><span>{$title8}</span></div>
+								<div class="box">{$content8}</div>
+							</div>{/if}
+							{if !empty($title9)}<div class="meA">
+								<div id="mI" class="title"><span>{$title9}</span></div>
+								<div class="box">{$content9}</div>
+							</div>{/if}
+							{if !empty($title10)}<div class="meA">
+								<div id="mJ" class="title"><span>{$title10}</span></div>
+								<div class="box">{$content10}</div>
+							</div>{/if}
+							{if !empty($title11)}<div class="meA">
+								<div id="mK" class="title"><span>{$title11}</span></div>
+								<div class="box">{$content11}</div>
+							</div>{/if}
+							{if !empty($title12)}<div class="meA">
+								<div id="mL" class="title"><span>{$title12}</span></div>
+								<div class="box">{$content12}</div>
+							</div>{/if}
+						</div>
 		<h2 class="b10 t10"><img src="__IMG__/arcc.jpg"/>其他案例</h2>
 
 		<p class="clear h10"></p>
@@ -29,5 +77,8 @@
 	</div>
 <include file="Public:footer"/>
 <script type="text/javascript" src="__JS__/tab_news.js"></script>
+<script type="text/javascript">
+    $(".mediaR table").css("width","94%");
+</script>
 </body>
 </html>

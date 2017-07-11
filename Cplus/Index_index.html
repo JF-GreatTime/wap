@@ -1,302 +1,313 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<meta charset="utf-8">
-<meta content="width=device-width,minimum-scale=1,user-scalable=no,maximum-scale=1,initial-scale=1" name="viewport">
-<meta name="format-detection" content="telephone=no">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="white">
-<title>{$seo_title}-{$site_name}</title>
-<meta name="keywords" content="{$seo_keywords}" />
-<meta name="description" content="{$seo_description}" />
-<link href="__CSS__/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-<link href="__CSS__/style.css" rel="stylesheet" type="text/css" />
-<link href="__CSS__/index.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="__JS__/jquery.js"></script>
-<script type="text/javascript" src="__PUBLIC__/js/jquery-1.10.2.min.js"></script>
-	<script type="text/javascript">
-		document.domain = "{$Think.session.rootdomain}";
+    <meta charset="utf-8">
+    <meta content="width=device-width,minimum-scale=1,user-scalable=no,maximum-scale=1,initial-scale=1" name="viewport">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <title>{$seo_title}-{$site_name}</title>
+    <meta name="keywords" content="{$seo_keywords}" />
+    <meta name="description" content="{$seo_description}" />
+    <link href="__CSS__/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="__CSS__/style.css" rel="stylesheet" type="text/css" />
+    <link href="__CSS__/index.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="__JS__/jquery.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript">
+        document.domain = "{$Think.session.rootdomain}";
 
-		var dw = document.documentElement.clientWidth;
-		var	dh = document.documentElement.clientHeight;
+        var dw = document.documentElement.clientWidth;
+        var	dh = document.documentElement.clientHeight;
 
-		if (dw > 768) {
-			dw = 768;
-		}
-		document.addEventListener("DOMContentLoaded", function(){
-			var leftbtn = document.querySelector(".leftbtn"),
-					scroller = document.querySelector(".scroller"),
-					rightbtn = document.querySelector(".rightbtn");
-			scroller.style.width = (dw-46)+"px";
-			var itemLi = scroller.querySelectorAll("li");
-			var tW = 0;
-			if(itemLi.length) {
-				for(var i=0; i<itemLi.length; i++) {
-					tW += itemLi[i].offsetWidth;
-				}
-				document.querySelector(".srobody").style.width = tW+"px";
-			}
+        if (dw > 768) {
+            dw = 768;
+        }
+        document.addEventListener("DOMContentLoaded", function(){
+            var leftbtn = document.querySelector(".leftbtn"),
+                scroller = document.querySelector(".scroller"),
+                rightbtn = document.querySelector(".rightbtn");
+            scroller.style.width = (dw-46)+"px";
+            var itemLi = scroller.querySelectorAll("li");
+            var tW = 0;
+            if(itemLi.length) {
+                for(var i=0; i<itemLi.length; i++) {
+                    tW += itemLi[i].offsetWidth;
+                }
+                document.querySelector(".srobody").style.width = tW+"px";
+            }
 
-			var srobody = document.querySelector(".srobody");
-			var translateX = 0;
-			leftbtn.addEventListener("click", function(){
-				if(Math.abs(translateX) == 0) return false;
-				translateX += tW/itemLi.length;
-				srobody.style.webkitTransform = "translateX("+translateX+"px)";
-			});
-			rightbtn.addEventListener("click", function(){
-				translateX -= tW/itemLi.length;
-				if(Math.abs(translateX) >= (tW-scroller.offsetWidth)) return false;
-				srobody.style.webkitTransform = "translateX("+translateX+"px)";
-			});
-			var startX=0,endX=0;
-			srobody.addEventListener("touchstart", function(event){
-				startX = event.touches[0].clientX;
-			});
-			srobody.addEventListener("touchmove", function(event){
-				event.preventDefault();
-				endX = event.touches[0].clientX;
-			});
-			srobody.addEventListener("touchend", function(event){
-				if(startX < endX) {
-					if(Math.abs(translateX) == 0) return false;
-					translateX += itemLi[0].offsetWidth;
-				}
-				if(startX > endX) {
-					translateX -= itemLi[0].offsetWidth;
-					if(Math.abs(translateX) >= (tW-scroller.offsetWidth)) return false;
-				}
-				srobody.style.webkitTransform = "translateX("+translateX+"px)";
-			});
+            var srobody = document.querySelector(".srobody");
+            var translateX = 0;
+            leftbtn.addEventListener("click", function(){
+                if(Math.abs(translateX) == 0) return false;
+                translateX += tW/itemLi.length;
+                srobody.style.webkitTransform = "translateX("+translateX+"px)";
+            });
+            rightbtn.addEventListener("click", function(){
+                translateX -= tW/itemLi.length;
+                if(Math.abs(translateX) >= (tW-scroller.offsetWidth)) return false;
+                srobody.style.webkitTransform = "translateX("+translateX+"px)";
+            });
+            var startX=0,endX=0;
+            srobody.addEventListener("touchstart", function(event){
+                startX = event.touches[0].clientX;
+            });
+            srobody.addEventListener("touchmove", function(event){
+                event.preventDefault();
+                endX = event.touches[0].clientX;
+            });
+            srobody.addEventListener("touchend", function(event){
+                if(startX < endX) {
+                    if(Math.abs(translateX) == 0) return false;
+                    translateX += itemLi[0].offsetWidth;
+                }
+                if(startX > endX) {
+                    translateX -= itemLi[0].offsetWidth;
+                    if(Math.abs(translateX) >= (tW-scroller.offsetWidth)) return false;
+                }
+                srobody.style.webkitTransform = "translateX("+translateX+"px)";
+            });
 
 
-			var leftbtn2 = document.querySelector(".leftbtn2"),
-					scroller2 = document.querySelector(".scroller2"),
-					rightbtn2 = document.querySelector(".rightbtn2");
-			scroller2.style.width = (dw-46)+"px";
-			var itemLi2 = scroller2.querySelectorAll("li");
-			var tW2 = 0;
-			if(itemLi2.length) {
-				for(var i=0; i<itemLi2.length; i++) {
-					tW2 += itemLi[0].offsetWidth;
-				}
-				document.querySelector(".srobody2").style.width = tW2+"px";
-			}
+            var leftbtn2 = document.querySelector(".leftbtn2"),
+                scroller2 = document.querySelector(".scroller2"),
+                rightbtn2 = document.querySelector(".rightbtn2");
+            scroller2.style.width = (dw-46)+"px";
+            var itemLi2 = scroller2.querySelectorAll("li");
+            var tW2 = 0;
+            if(itemLi2.length) {
+                for(var i=0; i<itemLi2.length; i++) {
+                    tW2 += itemLi[0].offsetWidth;
+                }
+                document.querySelector(".srobody2").style.width = tW2+"px";
+            }
 
-			var srobody2 = document.querySelector(".srobody2");
-			var translateX2 = 0;
-			leftbtn2.addEventListener("click", function(){
-				if(Math.abs(translateX2) == 0) return false;
-				translateX2 += tW2/itemLi2.length;
-				srobody2.style.webkitTransform = "translateX2("+translateX2+"px)";
-			});
-			rightbtn2.addEventListener("click", function(){
-				if(Math.abs(translateX2) >= (tW2-scroller2.offsetWidth)) return false;
-				translateX2 -= tW2/itemLi2.length;
-				srobody2.style.webkitTransform = "translateX("+translateX2+"px)";
-			});
-			var startX2=0,endX2=0;
-			srobody2.addEventListener("touchstart", function(event){
-				startX2 = event.touches[0].clientX;
-			});
-			srobody2.addEventListener("touchmove", function(event){
-				event.preventDefault();
-				endX2 = event.touches[0].clientX;
-			});
-			srobody2.addEventListener("touchend", function(event){
-				if(startX2 < endX2) {
-					if(Math.abs(translateX2) == 0) return false;
-					translateX2 += itemLi2[0].offsetWidth;
-				}
-				if(startX2 > endX2) {
-					if(Math.abs(translateX2) >= (tW2-scroller2.offsetWidth)) return false;
-					translateX2 -= itemLi2[0].offsetWidth;
-				}
-				srobody2.style.webkitTransform = "translateX("+translateX2+"px)";
-			});
-		});
+            var srobody2 = document.querySelector(".srobody2");
+            var translateX2 = 0;
+            leftbtn2.addEventListener("click", function(){
+                if(Math.abs(translateX2) == 0) return false;
+                translateX2 += tW2/itemLi2.length;
+                srobody2.style.webkitTransform = "translateX2("+translateX2+"px)";
+            });
+            rightbtn2.addEventListener("click", function(){
+                if(Math.abs(translateX2) >= (tW2-scroller2.offsetWidth)) return false;
+                translateX2 -= tW2/itemLi2.length;
+                srobody2.style.webkitTransform = "translateX("+translateX2+"px)";
+            });
+            var startX2=0,endX2=0;
+            srobody2.addEventListener("touchstart", function(event){
+                startX2 = event.touches[0].clientX;
+            });
+            srobody2.addEventListener("touchmove", function(event){
+                event.preventDefault();
+                endX2 = event.touches[0].clientX;
+            });
+            srobody2.addEventListener("touchend", function(event){
+                if(startX2 < endX2) {
+                    if(Math.abs(translateX2) == 0) return false;
+                    translateX2 += itemLi2[0].offsetWidth;
+                }
+                if(startX2 > endX2) {
+                    if(Math.abs(translateX2) >= (tW2-scroller2.offsetWidth)) return false;
+                    translateX2 -= itemLi2[0].offsetWidth;
+                }
+                srobody2.style.webkitTransform = "translateX("+translateX2+"px)";
+            });
+        });
 
-		document.addEventListener("DOMContentLoaded", function(){
+        document.addEventListener("DOMContentLoaded", function(){
 
-		});
+        });
 
-		$(".tjcp li div").height($(".tjcp li div").width());
+        $(".tjcp li div").height($(".tjcp li div").width());
 
-	</script>
-	<script>
-		document.addEventListener("DOMContentLoaded", function(){
-			var dw = document.documentElement.clientWidth;
-			var dh = document.documentElement.clientHeight;
-			if (dw > 768) {
-				dw = 768;
-			}
-			var catDiv = document.querySelectorAll(".tjcp li div");
-			var catH3 = document.querySelectorAll(".tjcp li p");
-			if(catDiv.length > 0) {
-				for(var i=0; i<catDiv.length; i++) {
-//					catDiv[i].style.cssText = "width:"+((dw-40)/2)+"px;height:"+((dw-40)/2)+"px";
-					catDiv[i].style.cssText = "width:"+((dw-40)/2)+"px;
-					catH3[i].style.cssText = "width:"+((dw-40)/2)+"px";
-				}
-			}
-		});
-	</script>
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            var dw = document.documentElement.clientWidth;
+            var dh = document.documentElement.clientHeight;
+            if (dw > 768) {
+                dw = 768;
+            }
+            var catDiv = document.querySelectorAll(".tjcp li div");
+            var catH3 = document.querySelectorAll(".tjcp li p");
+            if(catDiv.length > 0) {
+                for(var i=0; i<catDiv.length; i++) {
+	catDiv[i].style.cssText = "width:"+((dw-40)/2)+"px;height:"+((dw-40)/2)+"px";
+//                    catDiv[i].style.cssText = "width:"+((dw-40)/2)+"px";
+                    catH3[i].style.cssText = "width:"+((dw-40)/2)+"px";
+                }
+            }
+        });
+    </script>
 
 </head>
 
 <body>
 <div id="container">
-	<header>
-		<div class="header-top">
+    <header>
+        <div class="header-top">
             <a href="/" class="logo">
                 <img src="{$site_wap_logo}" alt="">
             </a>
-			<img style="width: 30%" src="http://www.qmtmedia.com/Themes/Home/Default/Public/images/titlej.png" alt="">
-			<a class="lang" href="/en.html"><i class="icon-globe"></i></a>
-			<a class="tel" href="tel:{$site_tel400}">
-				<i class="icon-phone"></i>
-				<span style="font-size: 0.8em;">{$site_tel400}</span>
-			</a>
-		</div>
-	</header>
-	<nav class="g-nav">
-		<ul>
-			<li><a href="http://m.qmtmedia.com/">首页</a></li>
-			<Gr:wapsubcat catid="0" id="r">
-				<li><a href="{$r.url}">{$r.catname}</a></li>
-			</Gr:wapsubcat>
-		</ul>
-	</nav>
-	<p class="clear"></p>
-	<!-- 动画 -->
-	<script src="__JS__/jquery.flexslider-min.js"></script>
-	<script type="text/javascript">
-		/*banner css3 media query slider*/
-		  $('.flexslider').flexslider({
-			animation: "slide",
-			start: function(slider){
-			  $('body').removeClass('loading');
-			}
-		  });
-	</script>
 
-	<div class="g-adv j-slide-auto">
-		<p class="clear"></p>
-		<div class="sclwrap_box" style="position: relative; overflow: hidden; visibility: visible; list-style: none;">
-			<ul class="m-box" id="slides_control_id0">
-				<volist name="slide" id="r">
-					<li style="float: left;">
-						<a href="javascript:void(0)"><img src="{$r['pic']}" data-src="{$r['pic']}" class="loaded"></a>
-					</li>
-				</volist>
-			</ul>
-		</div>
-		<p class="clear"></p>
-	</div>
-	<p class="clear"></p>
-	<div class="box">
+            <a class="lang" href="/en.html"><i class="icon-globe"></i></a>
+            <a class="tel" href="tel:{$site_tel400}">
+                <i class="icon-phone"></i>
+                <span style="font-size: 0.8em;">{$site_tel400}</span>
+            </a>
+        </div>
+    </header>
+    <nav class="g-nav">
+        <ul>
+            <li><a href="http://m.qmtmedia.com/">首页</a></li>
+            <Gr:wapsubcat catid="0" id="r">
+                <li><a href="{$r.url}">{$r.catname}</a></li>
+            </Gr:wapsubcat>
+        </ul>
+    </nav>
+    <p class="clear"></p>
+    <!-- 动画 -->
+    <script src="__JS__/jquery.flexslider-min.js"></script>
+    <script type="text/javascript">
+        /*banner css3 media query slider*/
+        $('.flexslider').flexslider({
+            animation: "slide",
+            start: function(slider){
+                $('body').removeClass('loading');
+            }
+        });
+    </script>
+
+    <div class="g-adv j-slide-auto">
+        <p class="clear"></p>
+        <div class="sclwrap_box" style="position: relative; overflow: hidden; visibility: visible; list-style: none;">
+            <ul class="m-box" id="slides_control_id0">
+                <volist name="slide" id="r">
+                    <li style="float: left;">
+                        <a href="javascript:void(0)"><img src="{$r['pic']}" data-src="{$r['pic']}" class="loaded"></a>
+                    </li>
+                </volist>
+            </ul>
+        </div>
+        <p class="clear"></p>
+    </div>
+    <p class="clear"></p>
+    <div class="searchi">
+    <img class="loaded" alt="" src="__IMG__/titlej.png" style="width: 60%;margin-left:20%;">
+        <ul>
+            <form action="{:U('Search/index')}" method="post">
+                <input name="keyword" type="text" class="searchi_a"  onblur="if(this.value==''){this.value='请输入媒体，如：北京地铁'}" onFocus="if(this.value=='请输入媒体，如：北京地铁'){this.value=''}" value="请输入媒体，如：北京地铁">
+                <input name="" type="submit" class="searchi_s" value="搜索">
+            </form>
+        </ul>
+        <p class="clear"></p>
+    </div>
+    <p class="clear"></p>
+    <div class="box">
         <i class="box_buttom"></i>
-		<h2><a href="{:U('Picture/index',array('id'=>1))}">更多>></a><i class="icon-angle-right"></i>交通媒体</h2>
-		<ul class="tjcp">
+        <h2><a href="{:U('Picture/index',array('id'=>1))}">更多>></a><i class="icon-angle-right"></i>交通媒体</h2>
+        <ul class="tjcp">
             <Gr:list catid="1" id="r" key="i" field="id,catid,title,url,thumb" limit="6">
-            <?php 
+                <?php 
                 $url = $r['url'];
                 $arr = explode("/",$url);
                 $nurl = $arr[1].'/'.Pinyin($r['title']).'/'.$arr[2];
             ?>
-            <li><a href="{$nurl}"><div>
-                <img src="{$r['thumb']}" alt="{$r['title']}" title="{$r['title']}"/></div><p>{$r['title']}</p></a></li>
+                <li><a href="{$r.url}"><div>
+                    <img src="{$r['thumb']}" alt="{$r['title']}" title="{$r['title']}"/></div><p>{$r['title']}</p></a></li>
             </Gr:list>
-		</ul>
-	</div>
-	<p class="clear"></p>
-	<div class="box">
+        </ul>
+    </div>
+    <p class="clear"></p>
+
+    <div class="box">
         <i class="box_buttom"></i>
-		<h2><a href="{:U('Picture/index',array('id'=>2))}">更多>></a><i class="icon-angle-right"></i>新媒体</h2>
-		<ul class="tjcp">
-            <Gr:list catid="2" id="r" key="i" field="id,catid,title,url,thumb" limit="6">
-            <?php 
-                $url = $r['url'];
-                $arr = explode("/",$url);
-                $nurl = $arr[1].'/'.Pinyin($r['title']).'/'.$arr[2];
-            ?>
-            <li><a href="{$nurl}"><div>
-                <img src="{$r['thumb']}" alt="{$r['title']}" title="{$r['title']}"/></div><p>{$r['title']}</p></a></li>
-            </Gr:list>
-		</ul>
-	</div>
-	<p class="clear"></p>
-	<div class="box">
-        <i class="box_buttom"></i>
-		<h2><a href="{:U('Picture/index',array('id'=>3))}">更多>></a><i class="icon-angle-right"></i>综合媒体</h2>
-		<ul class="tjcp">
+        <h2><a href="{:U('Picture/index',array('id'=>3))}">更多>></a><i class="icon-angle-right"></i>综合媒体</h2>
+        <ul class="tjcp">
             <Gr:list catid="3" id="r" key="i" field="id,catid,title,url,thumb" limit="6">
-            <?php 
+                <?php 
                 $url = $r['url'];
                 $arr = explode("/",$url);
                 $nurl = $arr[1].'/'.Pinyin($r['title']).'/'.$arr[2];
             ?>
-            <li><a href="{$nurl}"><div>
-                <img src="{$r['thumb']}" alt="{$r['title']}" title="{$r['title']}"/></div><p>{$r['title']}</p></a></li>
+                <li><a href="{$r.url}"><div>
+                    <img src="{$r['thumb']}" alt="{$r['title']}" title="{$r['title']}"/></div><p>{$r['title']}</p></a></li>
             </Gr:list>
-		</ul>
-	</div>
-
-	<p class="clear"></p>
-	<div class="box">
+        </ul>
+    </div>
+    <p class="clear"></p>
+    <div class="box">
         <i class="box_buttom"></i>
-		<h2>
-			<a href="{:U('Page/index',array(id=>1))}">更多>></a>
+        <h2><a href="{:U('Picture/index',array('id'=>2))}">更多>></a><i class="icon-angle-right"></i>新媒体</h2>
+        <ul class="tjcp">
+            <Gr:list catid="2" id="r" key="i" field="id,catid,title,url,thumb" limit="6">
+                <?php 
+                $url = $r['url'];
+                $arr = explode("/",$url);
+                $nurl = $arr[1].'/'.Pinyin($r['title']).'/'.$arr[2];
+            ?>
+                <li><a href="{$r.url}"><div>
+                    <img src="{$r['thumb']}" alt="{$r['title']}" title="{$r['title']}"/></div><p>{$r['title']}</p></a></li>
+            </Gr:list>
+        </ul>
+    </div>
+    <p class="clear"></p>
+    <div class="box">
+        <i class="box_buttom"></i>
+        <h2>
+            <a href="{:U('Page/index',array(id=>1))}">更多>></a>
             <i class="icon-angle-right"></i>关于我们
-		</h2>
-		<ul class="gywm yzh-block" block="aboutus">
-			 {$block['aboutus']}
-		</ul>
-	</div>
-	<p class="clear"></p>
-	<div class="box">
-		<ul id="tags">
-			<label><a href="{:U('Article/index',array('id'=>3))}">更多>></a></label>
-			<li class="selectTag"><a onClick="selectTag('tagContent0',this)" href="javascript:void(0)">媒体资讯</a></li>
-			<li><a onClick="selectTag('tagContent1',this)" href="javascript:void(0)">媒体知识</a></li>
-		</ul>
-		<div id="tagContent">
-			<div class="tagContent selectTag" id="tagContent0">
-				<ul class="news_i">
+        </h2>
+        <ul class="gywm yzh-block" block="aboutus">
+            {$block['aboutus']}
+        </ul>
+    </div>
+    <p class="clear"></p>
+    <div class="box">
+        <ul id="tags">
+            <label><a href="{:U('Article/index',array('id'=>3))}">更多>></a></label>
+            <li class="selectTag"><a onClick="selectTag('tagContent0',this)" href="javascript:void(0)">媒体资讯</a></li>
+            <li><a onClick="selectTag('tagContent1',this)" href="javascript:void(0)">媒体知识</a></li>
+        </ul>
+        <div id="tagContent">
+            <div class="tagContent selectTag" id="tagContent0">
+                <ul class="news_i">
 
-				<Gr:list catid="27" id="r" key="i" field="id,catid,title,url" limit="6">
-				<?php 
+                    <Gr:list catid="27" id="r" key="i" field="id,catid,title,url" limit="6">
+                        <?php 
 	                $url = $r['url'];
 	                $arr = explode("/",$url);
 	                $nurl = $arr[1].'/'.Pinyin($r['title']).'/'.$arr[2];
 	            ?>
-				<li>
-					<i class="icon-caret-right"></i>
-					<a href="{$nurl}" title="{$r['title']}">{$r['title']}</a>
-				</li>
-				</Gr:list>
+                        <li>
+                            <i class="icon-caret-right"></i>
+                            <a href="{$r.url}" title="{$r['title']}">{$r['title']}</a>
+                        </li>
+                    </Gr:list>
 
-				</ul>
-			</div>
-			<div class="tagContent" id="tagContent1">
-				<ul class="news_i">
-				<Gr:list catid="28" id="r" key="i" field="id,catid,title,url" limit="6">
-				<?php 
+                </ul>
+            </div>
+            <div class="tagContent" id="tagContent1">
+                <ul class="news_i">
+                    <Gr:list catid="28" id="r" key="i" field="id,catid,title,url" limit="6">
+                        <?php 
 	                $url = $r['url'];
 	                $arr = explode("/",$url);
 	                $nurl = $arr[1].'/'.Pinyin($r['title']).'/'.$arr[2];
 	            ?>
-				<li>
-                    <i class="icon-caret-right"></i>
-					<a href="{$nurl}" title="{$r['title']}">{$r['title']}</a>
-				</li>
-			  </Gr:list>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<p class="clear"></p>
-<include file="Public:footer"/>
+                        <li>
+                            <i class="icon-caret-right"></i>
+                            <a href="{$r.url}" title="{$r['title']}">{$r['title']}</a>
+                        </li>
+                    </Gr:list>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <p class="clear"></p>
+    <include file="Public:footer"/>
 </body>
 </html>
 </html>

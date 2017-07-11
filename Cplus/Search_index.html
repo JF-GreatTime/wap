@@ -1,5 +1,18 @@
 <include file="Public:header"/>
 	<p class="clear"></p>
+<div class="searchi">
+	<img class="loaded" alt="" src="__IMG__/titlej.png" style="width: 60%;margin-left:20%;">
+	<ul>
+		<section class="search">
+			<form action="/?m=search" method="post">
+				<input type="text" class="searchi_a"  name="keyword" placeholder="请输入媒体，如：北京地铁"/>
+				<input type="submit" class="searchi_s" value="搜索"/>
+			</form>
+		</section>
+	</ul>
+	<p class="clear"></p>
+</div>
+<p class="clear"></p>
 	<div class="box">
 		<div class="position">
 			<label class="fenlei"><a href="javascript:;" id="catlist">分类</a></label>
@@ -21,9 +34,10 @@
 
 			<p class="clear"></p>
 		</ul>
-					<div id="pagelist">
-				<!-- {$pages} -->
-			</div>
+					<!-- <div id="pagelist">
+				{$pages} 
+			</div>-->
+           <div style="text-align:center" id="pages">{$pages}</div>
 	</div>
 	<p class="clear"></p>
 <include file="Public:footer"/>

@@ -1,5 +1,6 @@
 <include file="Public:header"/>
 	<div class="searchi">
+        <img class="loaded" alt="" src="__IMG__/titlej.png" style="width: 60%;margin-left:20%;">
 		<ul>
 			<form action="{:U('Search/index')}" method="post">
 				<input name="keyword" type="text" class="searchi_a"  onblur="if(this.value==''){this.value='请输入产品关键字'}" onFocus="if(this.value=='请输入产品关键字'){this.value=''}" value="请输入产品关键字">
@@ -29,11 +30,11 @@
 		<?php 
             $url = $prea['url'];
             $arr = explode("/",$url);
-            $nurl = $arr[1].'/'.Pinyin($prea['title']).'/'.$arr[2];
+            $nurl = $arr[1].'/'.$arr[2];
 
             $xurl = $next['url'];
             $xarr = explode("/",$xurl);
-            $xurl = $xarr[1].'/'.Pinyin($next['title']).'/'.$xarr[2];
+            $xurl = $xarr[1].'/'.$xarr[2];
         ?>
 		<p class="t10">下一个：{if $prea!=''} <a href="/{$nurl}">{$prea.title|str_cut=###,60}</a>{else}<a>无</a>{/if}</p>
 
@@ -47,7 +48,7 @@
             $arr = explode("/",$url);
             $nurl = $arr[1].'/'.Pinyin($r['title']).'/'.$arr[2];
         ?>
-      <li><a href="/{$nurl}">{$r.title}</a></li>
+      <li><a href="{$r.url}">{$r.title}</a></li>
       </Gr:list>
 
 			<p class="clear"></p>

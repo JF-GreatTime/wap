@@ -1,5 +1,6 @@
 <include file="Public:header"/>
 	<div class="searchi">
+        <img class="loaded" alt="" src="__IMG__/titlej.png" style="width: 60%;margin-left:20%;">
 		<ul>
 			<form action="/?m=searchb" method="post">
 				<input name="keyword" type="text" class="searchi_a"  onblur="if(this.value==''){this.value='请输入产品关键字'}" onFocus="if(this.value=='请输入产品关键字'){this.value=''}" value="请输入产品关键字">
@@ -24,7 +25,7 @@
             $nurl = $arr[1].'/'.Pinyin($r['title']).'/'.$arr[2];
         ?>
 			<li>
-				<a href="{$nurl}">
+				<a href="{$r.url}">
 					<h2><img src="__IMG__/arcc.jpg"/>{$r.title|str_cut=###,30}</h2>
 					<p>{$r.description|str_cut=###,180}</p>
 				</a>

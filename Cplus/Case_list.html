@@ -1,9 +1,10 @@
 <include file="Public:header"/>
 <p class="clear"></p>
 <div class="searchi">
+        <img class="loaded" alt="" src="__IMG__/titlej.png" style="width: 60%;margin-left:20%;">
 	<ul>
 		<form action="/?m=searcha" method="post">
-		    <input type="text" class="searchi_a"  name="keyword" placeholder="请输入搜索关键词"/>
+		    <input type="text" class="searchi_a"  name="keyword" placeholder="请输入媒体，如：北京地铁"/>
 		    <input type="submit" class="searchi_s" value="搜索"/>
 		</form>
 	</ul>
@@ -37,6 +38,7 @@
 		<div id="pagelist">
 			{$pages}
 		</div>
+		<div style="text-align:center" id="pages">{$pages}</div>
 	</ul>
 
 <p class="clear"></p>

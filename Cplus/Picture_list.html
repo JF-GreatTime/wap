@@ -1,10 +1,11 @@
 <include file="Public:header"/>
 <p class="clear"></p>
 <div class="searchi">
+        <img class="loaded" alt="" src="__IMG__/titlej.png" style="width: 60%;margin-left:20%;">
 	<ul>
 	<section class="search">
 		<form action="/?m=search" method="post">
-		    <input type="text" class="searchi_a"  name="keyword" placeholder="请输入搜索关键词"/>
+		    <input type="text" class="searchi_a"  name="keyword" placeholder="请输入媒体，如：北京地铁"/>
 		    <input type="submit" class="searchi_s" value="搜索"/>
 		</form>
 	</section>
@@ -27,7 +28,8 @@
             $nurl = $arr[1].'/'.Pinyin($r['title']).'/'.$arr[2];
         ?>
 		<li>
-			<a href="{$nurl}">
+<!--			<a href="{$nurl}">-->
+			<a href="{$r.url}">
 				<div>
 					<img src="{$r['thumb']}" alt="{$r.title}" title="{$r.title}" onload="reset_pic(this, '130,130')">
 				</div>
@@ -36,9 +38,10 @@
 		</li>
 		</volist>
 		<p class="clear"></p>
-		<div id="pagelist">
+		<!--<div id="pagelist">
 			{$pages}
-		</div>
+		</div>-->
+		<div style="text-align:center" id="pages">{$pages}</div>
 	</ul>
 
 <p class="clear"></p>
