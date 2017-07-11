@@ -1,0 +1,34 @@
+<include file="Public:header"/>
+<Gr:flash flashid="2"/>
+	<div class="position">
+		<label class="fenlei"><a href="javascript:;" id="catlist">分类</a></label>
+		<a href="/">首页</a>
+	</div>
+	<p class="positionb"><img src="__IMG__/arcb.jpg"/></p>
+<include file="Public:asidemenu"/>
+<p class="clear"></p>
+<div class="cont">
+	{if $list}
+	<volist name="list" id="r">
+	<dd><em></em><span><b>职位：</b>{$r.title}</span><span><b>人数：</b>{$r.num}人</span><span><b>学历：</b>{$r.education}</span><span><b>时间：</b>{$r.createtime|toDate=###,'Y-m-d'}</span></dd>
+	<dt>
+	<p>
+		<strong>职位描述：</strong><br/>
+		{$r.jobdes}
+		<br/><br/>
+		<strong>职位要求：</strong><br/>
+		{$r.requirements}
+	</p>
+	<a href="{$r.url}" class="gr-apply">立即申请</a>
+	</dt>
+	<hr>
+	</volist>
+	{else}
+	{$catname}
+	{/if}
+	<p class="clear h15"></p>
+</div>
+<include file="Public:footer"/>
+<script type="text/javascript" src="__JS__/mobile.js"></script>
+</body>
+</html>

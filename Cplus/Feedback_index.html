@@ -1,0 +1,69 @@
+<include file="Public:header"/>
+    <p class="clear"></p>
+    <div class="position">
+        <label class="fenlei2">在线留言</label>
+        <a href="/">首页</a>
+    </div>
+    <p class="positionb"><img src="__IMG__/arcb.jpg" alt="下"/></p>
+    <p class="clear"></p>
+<div class="cont">
+    <div class="box">
+        <div id="tagContent">
+            <div class="tagContent selectTag">
+                <ul class="guest">
+                    <form method="post" action="{:U('Feedback/insert')}" id="frm" onsubmit="return checkForm();">
+                        <input type="hidden"  name="lang" value="1" />
+                        <input type="hidden"  name="title" value="手机端留言" />
+                        <li><label>姓名：</label>
+                            <input name="uname" type="text" class="guest_a" id="inp_name"></li>
+                        <li><label>电话：</label>
+                            <input name="tel" type="text" class="guest_a" id="inp_tel"></li>
+                        <li><label>邮箱：</label>
+                            <input name="email" type="text" class="guest_a" id="inp_name">
+                        </li>
+                        <li><label>留言：</label>
+                            <textarea name="content" cols="" rows="" class="guest_b"></textarea>
+                        </li>
+                        <li><label>验证：</label>
+                            <input name="verifyCode" type="text" class="guest_d" style="width:100px;">
+                            <img src="{:U('Public/verify')}" onClick="this.src='{:U('Public/verify')}?'+Math.random();" class="fl l10" alt="验证码">
+                        </li>
+                        <p class="clear"></p>
+                        <li><input name="dosubmit" type="submit" value="提  交" class="guest_c" id="submit"></li>
+                    </form>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<include file="Public:footer"/>
+<script>
+function checkForm() {
+    var obj = document.getElementById("frm");
+    if(obj.content.value == '') {
+        alert('请填写联系信息及留言内容');
+        return false;
+    }
+    if(obj.verifyCode.value == '') {
+        alert('请输入验证码');
+        return false;
+    }
+    $.ajax({
+        type:"POST",
+        dataType: 'json',
+        url:"{:U('Feedback/insert')}",
+        data: $("#frm").serialize(),
+        success:function(data){
+            if (data.status == 1) {
+                alert("感谢您的留言，我们会尽快联系您！");
+                window.location.reload();
+            } else {
+                alert('验证码错误');
+            }
+        }
+    });
+    return false;
+}
+</script>
+</body>
+</html>

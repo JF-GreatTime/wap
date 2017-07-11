@@ -1,0 +1,42 @@
+<include file="Public:header"/>
+	<div class="searchi">
+		<ul>
+			<form action="/?m=searchb" method="post">
+				<input name="keyword" type="text" class="searchi_a"  onblur="if(this.value==''){this.value='请输入产品关键字'}" onFocus="if(this.value=='请输入产品关键字'){this.value=''}" value="请输入产品关键字">
+				<input name="" type="submit" class="searchi_s" value="搜索">
+			</form>
+		</ul>
+	<p class="clear"></p>
+	</div>
+	<p class="clear"></p>
+	<div class="position">
+		<label class="fenlei"><a href="javascript:;" id="catlist">分类</a></label>
+		<a href="/">首页</a>
+	</div>
+	<include file="Public:asidemenu"/>
+	<p class="clear"></p>
+	<div class="news_list">
+		<ul>
+      	<volist name="list" id="r">
+      	<?php 
+            $url = $r['url'];
+            $arr = explode("/",$url);
+            $nurl = $arr[1].'/'.Pinyin($r['title']).'/'.$arr[2];
+        ?>
+			<li>
+				<a href="{$nurl}">
+					<h2><img src="__IMG__/arcc.jpg"/>{$r.title|str_cut=###,30}</h2>
+					<p>{$r.description|str_cut=###,180}</p>
+				</a>
+			</li>
+   		</volist>
+			<p class="clear"></p>
+			<div id="pagelist">
+				{$page}
+			</div>
+			<div style="text-align:center" id="pages">{$pages}</div>
+		</ul>
+	</div>
+<include file="Public:footer"/>
+</body>
+</html>

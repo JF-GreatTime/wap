@@ -1,0 +1,31 @@
+<include file="Public:header"/>
+	<p class="clear"></p>
+	<div class="box">
+		<div class="position">
+			<label class="fenlei"><a href="javascript:;" id="catlist">分类</a></label>
+			<a href="/" target="_blank">首页</a>&nbsp;&gt;&nbsp;产品搜索
+		</div>
+		<p class="positionb"><img src="__IMG__/arcb.jpg" alt="右"/></p>
+		<ul class="product_list" style="padding:10px 0;">
+		{if $list}
+		<volist name="list" id="r">
+			<li>
+				<div class="di"><a href="{$r.url}"><img src="{$r.thumb}" alt="{$r.title}" title="{$r.title}" onload="reset_pic(this, '120,120')"/></a></div>
+					<h3><strong>{$r.title}</strong></h3>
+					<p class="c">{$r.description|str_cut=###,100}</p>
+			</li>
+		</volist>
+		{else}
+          对不起，没有找到您要的结果
+         {/if}
+
+			<p class="clear"></p>
+		</ul>
+					<div id="pagelist">
+				<!-- {$pages} -->
+			</div>
+	</div>
+	<p class="clear"></p>
+<include file="Public:footer"/>
+</body>
+</html>

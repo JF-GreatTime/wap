@@ -1,0 +1,17 @@
+<div class="catalog">
+    <ul>
+        <li><a href="javascript:;">√{$max_parent_catname} </a></li>
+        <Gr:subcat catid="$max_parent_catid" id="r">
+            <li><a href="{$r['url']}">　{$r['catname']}</a>
+                {if $r['child']==1}
+                <ul>
+                    <Gr:subcat catid="r['id']" id="rr">
+                        <li><a href="{$r['url']}">{$rr['catname']}</a></li>
+                    </Gr:subcat>
+                </ul>
+                {/if}
+            </li>
+        </Gr:subcat>
+    </ul>
+    <span class="catbtn"><img src="__IMG__/icon_slid.png" width="30" alt="右" /></span>
+</div>

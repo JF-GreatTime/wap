@@ -1,0 +1,132 @@
+<div class="box">
+	<ul id="tags">
+		<li class="selectTag"><a onClick="selectTag('tagContent0',this)" href="javascript:void(0)">联系我们</a></li>
+		<li><a onClick="selectTag('tagContent1',this)" href="javascript:void(0)">在线留言</a></li>
+		<li><a onClick="selectTag('tagContent2',this)" href="javascript:void(0)">我要评论</a></li>
+	</ul>
+	<div id="tagContent">
+		<div class="tagContent selectTag" id="tagContent0">
+			<ul class="contact">
+				<li><a href="tel:{$site_telephone}"><div><img src="__IMG__/c_tel.jpg"/><br/>电话咨询</div></a></li>
+				<li><a href="sms:+86 {$site_phone}"><div><img src="__IMG__/c_sms.jpg"/><br/>短信咨询</div></a></li>
+				<li><a href="http://wpa.qq.com/msgrd?V=1&Uin=qqcode&Site=qqcode&Menu=yes" target="_blank"><div><img src="__IMG__/c_qq.jpg"/><br/>QQ咨询</div></a></li>
+				<li><a href="mailto:{$site_email}"><div><img src="__IMG__/c_email.jpg"/><br/>邮件咨询</div></a></li>
+				<li><a href="{:U('Feedback/index')}"><div><img src="__IMG__/c_guest.jpg"/><br/>在线留言</div></a></li>
+				<li>
+					<a href="{$site_map_address}" target="_blank">
+				<div><img src="__IMG__/c_map.jpg"/><br/>公司地图</div></a></li>
+			</ul>
+		</div>
+		<div class="tagContent" id="tagContent1">
+			<ul class="guest">
+			<form id="frm" method="post" action="{:U('Feedback/insert')}" onsubmit="return chkForm();">
+				<input type="hidden" name="lang" value="1" />
+				<input type="hidden"  name="title" value="手机端留言" />
+				<input name="verify_status" value="1" type="hidden">
+				<li>
+					<label>姓名：</label>
+					<input name="uname" type="text" class="guest_a" id="inp_name">
+				</li>
+				<li>
+					<label>手机：</label>
+					<input name="tel" type="text" class="guest_a" id="inp_tel">
+				</li>
+				<li>
+					<label>邮箱：</label>
+					<input name="email" type="text" class="guest_a" id="inp_tel">
+				</li>
+				<li>
+					<label>留言：</label>
+					<textarea name="content" class="guest_b"></textarea>
+				</li>
+				<li>
+					<label>验证：</label>
+					<input name="verifyCode" type="text" class="guest_d" style="width:100px;">
+					<img src="{:U('Public/verify')}" onClick="this.src='{:U('Public/verify')}?'+Math.random();" class="fl l10">
+				</li>
+				<p class="clear"></p>
+				<li>
+					<input name="dosubmit" type="submit" value="提  交" class="guest_c" id="submit">
+				</li>
+			</form>
+			</ul>
+		</div>
+		<div class="tagContent" id="tagContent2">
+			<ul class="guest">
+			<form method="post" action="{:U('Post/insert')}" id="commentfrm">
+				<input type="hidden" id="catid" name="moduleid" value="21" />
+				<input type="hidden"  name="lang" value="1" />
+				<input type="hidden"  name="productid" value="{$id}" />
+				<input type="hidden"  name="title" value="{$title}" />
+				<li>
+					<label>评论：</label>
+					<textarea name="content" cols="" rows="" class="guest_b"></textarea>
+				</li>
+				<li>
+					<label>验证：</label>
+					<input name="verifyCode" type="text" class="guest_d" style="width:100px;">
+					<img src="{:U('Public/verify')}"  onclick="this.src='{:U('Public/verify')}?'+Math.random();" class="fl l10"/>
+					<p class="clear"></p>
+				</li>
+				<li>
+					<input type="submit" onclick="chkCommentForm();return false;" class="guest_c" value="提  交" name="">
+				</li>
+			</form>
+			</ul>
+		</div>
+	</div>
+</div>
+<script>
+function chkForm() {
+	var obj = document.getElementById("frm");
+	if(obj.content.value == '') {
+		alert('请填写联系信息及留言内容');
+		return false;
+	}
+	if(obj.verifyCode.value == '') {
+		alert('请输入验证码');
+		return false;
+	}
+	$.ajax({
+		type:"POST",
+		dataType: 'json',
+		url:"{:U('Feedback/insert')}",
+		data: $("#frm").serialize(),
+		success:function(data){
+			if (data.status==1) {
+				alert("感谢您的留言，我们会尽快联系您！");
+				window.location.reload();
+			} else {
+				alert("验证码错误")
+			}
+		}
+	});
+	return false;
+}
+
+function chkCommentForm() {
+	var obj = document.getElementById("commentfrm");
+	if(commentfrm.content.value == '') {
+		alert("请填写评论内容");
+		return false;
+	}
+	if(commentfrm.verifyCode.value == '') {
+		alert('请输入验证码');
+		return false;
+	}
+	$.ajax({
+		type:"POST",
+		dataType: 'json',
+		url:"{:U('Wap/Product/comment')}",
+		data:$("#commentfrm").serialize(),
+		success: function(data) {
+			if(data.status==1) {
+				alert("感谢您对我们产品及服务的评价");
+				window.location.reload();
+			} else {
+				alert('验证码错误');
+			}
+		}
+	});
+}
+</script>

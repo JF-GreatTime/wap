@@ -1,0 +1,21 @@
+<include file="Public:header"/>
+<p class="clear"></p>
+<Gr:flash flashid="2"/>
+	<div class="position">
+		<label class="fenlei"><a href="javascript:;" id="catlist">分类</a></label>
+		<a href="/">首页</a>
+	</div>
+	<p class="positionb"><img src="__IMG__/arcb.jpg"/></p>
+	<include file="Public:catlog"/>
+
+<p class="clear"></p>
+<div class="cont" style="font-size:14px;">
+	{if $content}{$content}{else}{$catname}{/if}
+	<p class="clear h15"></p>
+	<p class="calla"><a href="{$site_map_address}" target="_blank">查看地图</a></p>
+	<!--<p class="callb"><a href="{$site_map_address}" target="_blank">一键导航</a></p>-->
+	<p class="clear"></p>
+</div>
+<include file="Public:footer"/>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<include file="Public:header"/>
+<p class="clear"></p>
+<div class="searchi">
+	<ul>
+		<form action="/?m=searcha" method="post">
+		    <input type="text" class="searchi_a"  name="keyword" placeholder="请输入搜索关键词"/>
+		    <input type="submit" class="searchi_s" value="搜索"/>
+		</form>
+	</ul>
+<p class="clear"></p>
+</div>
+<p class="clear"></p>
+
+	<div class="position">
+		<label class="fenlei"><a href="javascript:;" id="catlist">分类</a></label>
+		<a href="{:U('Index/index')}" target="_blank">首页</a>
+	</div>
+	<p class="positionb"><img src="__IMG__/arcb.jpg"/></p>
+	<include file="Public:asidemenu"/>
+	<ul class="product_lista" style="padding:15px 0;">
+		<volist name="list" id="r">
+		<?php 
+            $url = $r['url'];
+            $arr = explode("/",$url);
+            $nurl = $arr[1].'/'.Pinyin($r['title']).'/'.$arr[2];
+        ?>
+		<li>
+			<a href="{$nurl}">
+				<div>
+					<img src="{$r['thumb']}" alt="{$r.title}" title="{$r.title}" onload="reset_pic(this, '130,130')">
+				</div>
+			</a>
+			<h2>{$r.title}</h2>
+		</li>
+		</volist>
+		<p class="clear"></p>
+		<div id="pagelist">
+			{$pages}
+		</div>
+	</ul>
+
+<p class="clear"></p>
+<include file="Public:footer"/>
+</body>
+</html>
