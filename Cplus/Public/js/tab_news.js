@@ -1,4 +1,4 @@
-function selectTag(showContent,selfObj){
+function selectTag(showContent,selfObj,jNum){
 	// 操作标签
 	var tag = document.getElementById("tags").getElementsByTagName("li");
 	var taglength = tag.length;
@@ -11,6 +11,14 @@ function selectTag(showContent,selfObj){
 		j.style.display = "none";
 	}
 	document.getElementById(showContent).style.display = "block";
+	console.log()
+	if(jNum==0){
+        document.getElementById("tags_label").getElementsByTagName("a")[0].setAttribute("href","/xinwenzixun.html");
+	}else if(jNum==1){
+        document.getElementById("tags_label").getElementsByTagName("a")[0].setAttribute("href","/guanggaozhishi.html");
+	}else if(jNum==2){
+        document.getElementById("tags_label").getElementsByTagName("a")[0].setAttribute("href","/yejieshuju.html");
+    }
 };
 
 function selectTaga(showContent,selfObj){

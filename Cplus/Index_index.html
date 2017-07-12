@@ -268,9 +268,11 @@
     <p class="clear"></p>
     <div class="box">
         <ul id="tags">
-            <label><a href="{:U('Article/index',array('id'=>3))}">更多>></a></label>
-            <li class="selectTag"><a onClick="selectTag('tagContent0',this)" href="javascript:void(0)">媒体资讯</a></li>
-            <li><a onClick="selectTag('tagContent1',this)" href="javascript:void(0)">媒体知识</a></li>
+            <!--<label id="tags_label"><a href="{:U('Article/index',array('id'=>3))}">更多>></a></label>-->
+            <label id="tags_label"><a href="./xinwenzixun.html">更多>></a></label>
+            <li class="selectTag"><a onClick="selectTag('tagContent0',this,0)" href="javascript:void(0)">媒体资讯</a></li>
+            <li><a onClick="selectTag('tagContent1',this,1)" href="javascript:void(0)">媒体知识</a></li>
+            <li><a onClick="selectTag('tagContent2',this,2)" href="javascript:void(0)">业界数据</a></li>
         </ul>
         <div id="tagContent">
             <div class="tagContent selectTag" id="tagContent0">
@@ -294,6 +296,21 @@
                 <ul class="news_i">
                     <Gr:list catid="28" id="r" key="i" field="id,catid,title,url" limit="6">
                         <?php 
+	                $url = $r['url'];
+	                $arr = explode("/",$url);
+	                $nurl = $arr[1].'/'.Pinyin($r['title']).'/'.$arr[2];
+	            ?>
+                        <li>
+                            <i class="icon-caret-right"></i>
+                            <a href="{$r.url}" title="{$r['title']}">{$r['title']}</a>
+                        </li>
+                    </Gr:list>
+                </ul>
+            </div>
+            <div class="tagContent" id="tagContent2">
+                <ul class="news_i">
+                    <Gr:list catid="29" id="r" key="i" field="id,catid,title,url" limit="6">
+                        <?php
 	                $url = $r['url'];
 	                $arr = explode("/",$url);
 	                $nurl = $arr[1].'/'.Pinyin($r['title']).'/'.$arr[2];
