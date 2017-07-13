@@ -18,10 +18,24 @@
 	<include file="Public:asidemenu"/>
 	<p class="clear"></p>
 	<div class="cont">
+		<p class="b10" align="center"><img alt="{$title}" src="{$thumb}"/></p>
 		<h1>{$title}</h1>
 		<p class="time"><?php echo date('Y-m-d', $createtime)?></p>
 		<div style="padding:0 10px;">{$content}</div>
-		<p class="b10" align="center"><img alt="{$title}" src="{$thumb}"/></p>
+
+		<p class="clear h10"></p>
+		<?php
+            $url = $prea['url'];
+            $arr = explode("/",$url);
+            $nurl = $arr[1].'/'.$arr[2];
+
+            $xurl = $next['url'];
+            $xarr = explode("/",$xurl);
+            $xurl = $xarr[1].'/'.$xarr[2];
+        ?>
+		<p class="t10">下一个：{if $prea!=''} <a href="/{$nurl}">{$prea.title|str_cut=###,60}</a>{else}<a>无</a>{/if}</p>
+		<p>上一个：{if $next!=''} <a href="/{$xurl}">{$next.title|str_cut=###,60}</a>{else}<a>无</a>{/if}</p>
+
 		<h2 class="b10 t10"><img src="__IMG__/arcc.jpg"/>其他案例</h2>
 		<ul id="xgxw">
 			<Gr:list catid="catid" limit="3" field="id,catid,title,url,thumb">
@@ -36,12 +50,24 @@
 			<p class="clear"></p>
 		</ul>
 		<p class="clear h10"></p>
+		<?php
+            $url = $prea['url'];
+            $arr = explode("/",$url);
+            $nurl = $arr[1].'/'.$arr[2];
+
+            $xurl = $next['url'];
+            $xarr = explode("/",$xurl);
+            $xurl = $xarr[1].'/'.$xarr[2];
+        ?>
+		<p class="t10">下一个：{if $prea!=''} <a href="/{$nurl}">{$prea.title|str_cut=###,60}</a>{else}<a>无</a>{/if}</p>
+
+		<p>上一个：{if $next!=''} <a href="/{$xurl}">{$next.title|str_cut=###,60}</a>{else}<a>无</a>{/if}</p>
 		<include file="Public:pinglun"/>
 	</div>
 <include file="Public:footer"/>
 <script type="text/javascript">
     $(".cont table").css("width","94%");
-    $(".cont>div>img").css({"width":"94%","height":"auto"});
+    $(".cont>div:first-of-type>img").css({"width":"94%","height":"auto"});
 </script>
 <script type="text/javascript" src="__JS__/tab_news.js"></script>
 </body>
