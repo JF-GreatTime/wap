@@ -12,7 +12,7 @@
 	<p class="clear"></p>
 	<div class="position">
 		<label class="fenlei"><a href="javascript:;" id="catlist">分类</a></label>
-		<a href="{:U('Index/index')}" target="_blank">首页</a><Gr:catpos catid="catid" space=" > " />
+		<a href="{:U('Index/index')}" target="_blank">首页></a><Gr:catpos catid="catid" space=" > " />
 	</div>
 	<p class="positionb"><img src="__IMG__/arcb.jpg"/></p>
 	<include file="Public:asidemenu"/>
@@ -23,11 +23,26 @@
 		<div style="padding:0 10px;">{$content}</div>
 		<p class="b10" align="center"><img alt="{$title}" src="{$thumb}"/></p>
 		<h2 class="b10 t10"><img src="__IMG__/arcc.jpg"/>其他案例</h2>
+		<ul id="xgxw">
+			<Gr:list catid="catid" limit="3" field="id,catid,title,url,thumb">
+				<?php
+            $url = $r['url'];
+            $arr = explode("/",$url);
+            $nurl = $arr[1].'/'.Pinyin($r['title']).'/'.$arr[2];
+        ?>
+				<li><a href="{$r.url}">{$r.title}</a></li>
+			</Gr:list>
 
+			<p class="clear"></p>
+		</ul>
 		<p class="clear h10"></p>
 		<include file="Public:pinglun"/>
 	</div>
 <include file="Public:footer"/>
+<script type="text/javascript">
+    $(".cont table").css("width","94%");
+    $(".cont>div>img").css({"width":"94%","height":"auto"});
+</script>
 <script type="text/javascript" src="__JS__/tab_news.js"></script>
 </body>
 </html>
