@@ -15,17 +15,17 @@
                         <input type="hidden"  name="lang" value="1" />
                         <input type="hidden"  name="title" value="手机端留言" />
                         <li><label>姓名：</label>
-                            <input name="uname" type="text" class="guest_a" id="inp_name"></li>
+                            <input name="uname" type="text" class="guest_a" id="inp_name" placeholder="必填"></li>
                         <li><label>电话：</label>
-                            <input name="tel" type="text" class="guest_a" id="inp_tel"></li>
+                            <input name="tel" type="text" class="guest_a" id="inp_tel" placeholder="必填"></li>
                         <li><label>邮箱：</label>
-                            <input name="email" type="text" class="guest_a" id="inp_name">
+                            <input name="email" type="text" class="guest_a" id="inp_name" placeholder="必填">
                         </li>
                         <li><label>留言：</label>
-                            <textarea name="content" cols="" rows="" class="guest_b"></textarea>
+                            <textarea name="content" cols="" rows="" class="guest_b" placeholder="请留下您的公司名称和需求，我们会尽快安排专业人员与您沟通"></textarea>
                         </li>
                         <li><label>验证：</label>
-                            <input name="verifyCode" type="text" class="guest_d" style="width:100px;">
+                            <input name="verifyCode" type="text" class="guest_d" style="width:100px;" placeholder="必填">
                             <img src="{:U('Public/verify')}" onClick="this.src='{:U('Public/verify')}?'+Math.random();" class="fl l10" alt="验证码">
                         </li>
                         <p class="clear"></p>
