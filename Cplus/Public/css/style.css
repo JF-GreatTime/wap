@@ -240,17 +240,17 @@ header {
     background-size:15px;
 }
 .searchi_s{
-	float:left;
-	display:block;
-	margin:0;
-	padding:0;
-	width:20%;
-	height:26px;
-	line-height:26px;
-	text-align:center;
-	background-color:#1896E6;
-	border-radius:0 10px 10px 0;
-	color:#fff;
+    float:left;
+    display:block;
+    margin:0;
+    padding:0;
+    width:20%;
+    height:26px;
+    line-height:26px;
+    text-align:center;
+    background-color:#1896E6;
+    border-radius:0 10px 10px 0;
+    color:#fff;
 }
 
 /*banner*/
@@ -400,9 +400,9 @@ header {
 .social_nav4 .btn2,
 .social4 span,
 .brand_advance .yscontent .telbg {
-	background-image: url(../images/SkinsBar4.png);
-	background-repeat:no-repeat;
-	background-size: 32px 889px;
+    background-image: url(../images/SkinsBar4.png);
+    background-repeat:no-repeat;
+    background-size: 32px 889px;
 }
 
 /*底部浮动栏样式*/
@@ -420,7 +420,6 @@ body{
     height: 50px;
     line-height: 50px;
     text-indent: 2.5em;
-    /*width: 33%;*/
     width: 25%;
 }
 #btn ul li a {
@@ -436,18 +435,17 @@ body{
     text-align: center;
 }
 #btn ul li a.btn_1 {
-    background: #1896e6 url("../images/icon_4.png") no-repeat scroll 15% center / 20px auto;
+    background: #1896e6 url("../images/weixin0.png") no-repeat scroll 15% center / 20px auto;
 }
 #btn ul li a.btn_2 {
-    background: #ffbb10 url("../images/icon_5.png") no-repeat scroll 15% center / 20px auto;
+    background: #ffbb10 url("../images/icon_4.png") no-repeat scroll 15% center / 20px auto;
 }
 #btn ul li a.btn_3 {
     background: #50c25f url("../images/icon_6.png") no-repeat scroll 15% center / 20px auto;
 }
 #btn ul li a.btn_4 {
-    background: #50c25f url("../images/icon_5.png") no-repeat scroll 15% center / 20px auto;
+    background: #e5007f url("../images/icon_5.png") no-repeat scroll 15% center / 20px auto;
 }
-
 .footer_fixed {
     background: #fff none repeat scroll 0 0;
     bottom: 0;
@@ -512,5 +510,5 @@ body{
 .mediaR .meA{overflow:hidden;margin-bottom:20px;}
 /*.mediaR .title{height:45px;line-height:45px;background:#eee;}*/
 .mediaR .title{height:30px;line-height:30px;background:#eee;}
-.mediaR .title span{display:inline-block;color:#fff;font-size:16px;width:215px;background:#ff4bae url(../images/topbj.jpg) repeat-x left bottom;padding-left:20px;}
+.mediaR .title span{display:inline-block;color:#fff;font-size:16px;width:235px;background:#ff4bae url(../images/topbj.jpg) repeat-x left bottom;padding-left:20px;}
 .mediaR .box{padding-top:20px;overflow:hidden;font-size:14px;min-height:300px;}
