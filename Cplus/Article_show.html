@@ -24,8 +24,10 @@
 		$xw = M('Article')->where($where)->find();
 	?>
 		<h1>{$xw.title}</h1>
-		<p class="time">{$xw.creatime|toDate=###,'Y-m-d'}</p>
-		<div style="padding:0 10px; font-size:14px;">{$xw.content}</div>
+		<p class="time"><?php echo date('Y-m-d', $createtime)?></p>
+		<div style="padding:0 10px;">{$content}</div>
+		<!--<p class="time">{$xw.creatime|toDate=###,'Y-m-d'}</p>
+		<div style="padding:0 10px; font-size:14px;">{$xw.content}</div>-->
 		<p class="clear h10"></p>
 		<?php 
             $url = $prea['url'];

@@ -27,7 +27,7 @@
             var leftbtn = document.querySelector(".leftbtn"),
                 scroller = document.querySelector(".scroller"),
                 rightbtn = document.querySelector(".rightbtn");
-            scroller.style.width = (dw-46)+"px";
+                scroller.style.width = (dw-46)+"px";
             var itemLi = scroller.querySelectorAll("li");
             var tW = 0;
             if(itemLi.length) {
@@ -40,12 +40,14 @@
             var srobody = document.querySelector(".srobody");
             var translateX = 0;
             leftbtn.addEventListener("click", function(){
+console.log(translateX);
                 if(Math.abs(translateX) == 0) return false;
                 translateX += tW/itemLi.length;
                 srobody.style.webkitTransform = "translateX("+translateX+"px)";
             });
             rightbtn.addEventListener("click", function(){
                 translateX -= tW/itemLi.length;
+console.log(translateX);
                 if(Math.abs(translateX) >= (tW-scroller.offsetWidth)) return false;
                 srobody.style.webkitTransform = "translateX("+translateX+"px)";
             });
@@ -141,7 +143,16 @@
             }
         });
     </script>
-
+    <!--baidu-->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?9412489d2fc7932f10967b0b2a54582d";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
 </head>
 
 <body>
@@ -184,11 +195,26 @@
         <p class="clear"></p>
         <div class="sclwrap_box" style="position: relative; overflow: hidden; visibility: visible; list-style: none;">
             <ul class="m-box" id="slides_control_id0">
-                <volist name="slide" id="r">
+				<li style="float: left; display: block; width: 768px;">
+					<a href="http://m.qmtmedia.com/shangquanguanggao/50-657.html"><img src="/Uploads/201708/599d24601513c.jpg" data-src="/Uploads/201708/599d24601513c.jpg" class="loaded"></a>
+				</li>
+				<li style="float: left; display: block; width: 768px;">
+				<a href="http://m.qmtmedia.com/ditiegg/56-222.html"><img src="/Uploads/201707/596c5f3e38f8f.jpg" data-src="/Uploads/201707/596c5f3e38f8f.jpg" class="loaded"></a>
+			</li>
+				<li style="float: left; display: block; width: 768px;">
+				<a href="http://m.qmtmedia.com/product/detail/id/23/chid/61.html"><img src="/Uploads/201707/596c5f09bf806.jpg" data-src="/Uploads/201707/596c5f09bf806.jpg" class="loaded"></a>
+			</li>
+				<li style="float: left; display: block; width: 768px;">
+				<a href="http://m.qmtmedia.com/product/detail/id/23/chid/62.html"><img src="/Uploads/201707/596c5f5124bf5.jpg" data-src="/Uploads/201707/596c5f5124bf5.jpg" class="loaded"></a>
+			</li>
+				<li style="float: left; display: block; width: 768px;">
+				<a href="http://m.qmtmedia.com/jingqugg/47-558.html"><img src="/Uploads/201707/596c64dfbdf12.jpg" data-src="/Uploads/201707/596c64dfbdf12.jpg" class="loaded"></a>
+			</li>
+                <!--<volist name="slide" id="r">
                     <li style="float: left;">
-                        <a href="javascript:void(0)"><img src="{$r['pic']}" data-src="{$r['pic']}" class="loaded"></a>
+                        <a href="{$r['url']}"><img src="{$r['pic']}" data-src="{$r['pic']}" class="loaded"></a>
                     </li>
-                </volist>
+                </volist>-->
             </ul>
         </div>
         <p class="clear"></p>
@@ -254,6 +280,7 @@
         </ul>
     </div>
     <p class="clear"></p>
+
     <div class="box">
         <i class="box_buttom"></i>
         <h2>
@@ -266,9 +293,64 @@
         </ul>
     </div>
     <p class="clear"></p>
+
+
+	<div class="box">
+		<ul id="tagsa">
+			<li class="selectTaga"><a onClick="selectTaga('tagContenta0',this)" href="javascript:void(0)">广告案例</a></li>
+			<li><a onClick="selectTaga('tagContenta1',this)" href="javascript:void(0)">媒体促销</a></li>
+		</ul>
+		<div id="tagContenta">
+			<div class="tagContenta selectTaga" id="tagContenta0">
+				<div class="rollBox">
+					<div class="leftbtn"></div>
+					<div class="rightbtn"></div>
+					<div class="scroller">
+						<div class="srobody">
+							<ul class="item1">
+								<Gr:list catid="5" id="r" field="title,thumb,url" limit="6">
+								<li><a href="{$r.url}" title="{$r.title}">
+										<div><img src="{$r['thumb']}" alt="{$r['title']}" title="{$r['title']}" /></div>
+										<span>{$r['title']}</span>
+									</a>
+								</li>
+								</Gr:list>
+							</ul>
+						</div>
+					</div>
+					<p class="clear"></p>
+				</div>
+			</div>
+			<div class="tagContenta" id="tagContenta1">
+				<div class="rollBoxa">
+
+					<div class="leftbtn2"></div>
+
+					<div class="scroller2">
+						<div class="srobody2">
+							<ul class="item12">
+								<Gr:list catid="4" id="r" field="title,thumb,url" limit="6">
+								<li><a href="{$r.url}" title="{$r.title}">
+										<div><img src="{$r['thumb']}" alt="{$r['title']}" title="{$r['title']}" /></div>
+										<span>{$r['title']}</span>
+									</a>
+								</li>
+								</Gr:list>
+							</ul>
+						</div>
+					</div>
+					<div class="rightbtn2"></div>
+
+					<p class="clear"></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<p class="clear"></p>
+
+
     <div class="box">
         <ul id="tags">
-            <!--<label id="tags_label"><a href="{:U('Article/index',array('id'=>3))}">更多>></a></label>-->
             <label id="tags_label"><a href="./xinwenzixun.html">更多>></a></label>
             <li class="selectTag"><a onClick="selectTag('tagContent0',this,0)" href="javascript:void(0)">媒体资讯</a></li>
             <li><a onClick="selectTag('tagContent1',this,1)" href="javascript:void(0)">媒体知识</a></li>
@@ -322,6 +404,7 @@
                     </Gr:list>
                 </ul>
             </div>
+
         </div>
     </div>
     <p class="clear"></p>

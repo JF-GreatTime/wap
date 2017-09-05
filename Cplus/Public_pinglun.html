@@ -9,7 +9,6 @@
 			<ul class="contact">
 				<li><a href="tel:{$site_telephone}"><div><img src="__IMG__/c_tel.jpg"/><br/>电话咨询</div></a></li>
 				<li><a href="sms:+86 {$site_phone}"><div><img src="__IMG__/c_sms.jpg"/><br/>短信咨询</div></a></li>
-				<!--<li><a href="http://wpa.qq.com/msgrd?V=1&Uin=3528542998&Site=3528542998&Menu=yes" target="_blank"><div><img src="__IMG__/c_qq.jpg"/><br/>QQ咨询</div></a></li>-->
 				<li><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=3528542998&amp;site=qq&amp;menu=yes" target="_blank"><div><img src="__IMG__/c_qq.jpg"/><br/>QQ咨询</div></a></li>
 				<li><a href="mailto:{$site_email}"><div><img src="__IMG__/c_email.jpg"/><br/>邮件咨询</div></a></li>
 				<li><a href="{:U('Feedback/index')}"><div><img src="__IMG__/c_guest.jpg"/><br/>在线留言</div></a></li>
@@ -61,7 +60,7 @@
 				<input type="hidden"  name="title" value="{$title}" />
 				<li>
 					<label>评论：</label>
-					<textarea name="content" cols="" rows="" class="guest_b" placeholder="系统暂定该服务,请您转入留言区。" disabled></textarea>
+					<textarea name="content" cols="" rows="" class="guest_b" placeholder="系统暂停该服务,请您转入留言区。" disabled></textarea>
 				</li>
 				<li>
 					<label>验证：</label>
@@ -98,7 +97,6 @@ function chkForm() {
 				alert("感谢您的留言，我们会尽快联系您！");
 				window.location.reload();
 			} else {
-/*				alert("验证码错误")*/
 				alert("请正确填写您的验证码和个人信息")
 			}
 		}

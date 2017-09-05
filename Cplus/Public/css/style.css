@@ -240,17 +240,17 @@ header {
     background-size:15px;
 }
 .searchi_s{
-    float:left;
-    display:block;
-    margin:0;
-    padding:0;
-    width:20%;
-    height:26px;
-    line-height:26px;
-    text-align:center;
-    background-color:#1896E6;
-    border-radius:0 10px 10px 0;
-    color:#fff;
+	float:left;
+	display:block;
+	margin:0;
+	padding:0;
+	width:20%;
+	height:26px;
+	line-height:26px;
+	text-align:center;
+	background-color:#1896E6;
+	border-radius:0 10px 10px 0;
+	color:#fff;
 }
 
 /*banner*/
@@ -400,9 +400,9 @@ header {
 .social_nav4 .btn2,
 .social4 span,
 .brand_advance .yscontent .telbg {
-    background-image: url(../images/SkinsBar4.png);
-    background-repeat:no-repeat;
-    background-size: 32px 889px;
+	background-image: url(../images/SkinsBar4.png);
+	background-repeat:no-repeat;
+	background-size: 32px 889px;
 }
 
 /*底部浮动栏样式*/
