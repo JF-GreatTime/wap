@@ -192,7 +192,7 @@ background-color: rgba(200, 200, 200, 1);
     background:#0195FF;
     font-size:12px;
 }
-,#tagContent .guest li .guest_d{
+#tagContent .guest li .guest_d{
      float:left;
      width:100px;
      text-align:center;
